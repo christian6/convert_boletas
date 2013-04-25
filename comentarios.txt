@@ -1,0 +1,9 @@
+######################
+--- Version 1.0
+	Version Final de Produccion de boletas reader
+
+--- Version 1.2
+	Este es un texto plano en esta version realizaremos que boletas reader
+	pueda conectarse con un server remoto para poner almacenar los pdf generados
+
+######################
