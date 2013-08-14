@@ -154,7 +154,7 @@ class PDF(FPDF):
 		self.set_font('Arial','B',7)
 		self.cell(ln=0,h=3,align='L',w=190,txt='Descuentos',border=1)
 
-		des_descuento = {'0705':u'INASISTENCIAS'}
+		des_descuento = {'0705':u'INASISTENCIAS','0704':u'TARDANZAS'}
 		for k,i in ddescuento.items():
 			y = y + 3
 			self.set_font('Arial','',7)
@@ -366,7 +366,7 @@ class PDF(FPDF):
 		self.set_font('Arial','B',7)
 		self.cell(ln=0,h=3,align='L',w=190,txt='Descuentos',border=1)
 
-		des_descuento = {'0705':u'INASISTENCIAS'}
+		des_descuento = {'0705':u'INASISTENCIAS','0704':u'TARDANZAS'}
 		for k,i in ddescuento.items():
 			y = y + 3
 			self.set_font('Arial','',7)

@@ -30,7 +30,7 @@ class Principal(QtGui.QWidget):
 
 
 	def open(self):
-		filename = QtGui.QFileDialog.getOpenFileNames(self, 'Open File', 'F:\\')
+		filename = QtGui.QFileDialog.getOpenFileNames(self, 'Open File', '/')
 		#listWidget = self.ventana.listarchivo
 		if filename.isEmpty():
 			#reply = QtGui.QMessageBox.question(self, 'Confirmacion de cierre de aplicacion',"Desea cerrar la aplicacion?", QtGui.QMessageBox.Yes, QtGui.QMessageBox.No)
@@ -47,6 +47,7 @@ class Principal(QtGui.QWidget):
 				cstatus += fn +'\r\n'
 
 			for f in listaf:
+				print f
 				dst = dst+os.path.basename(f)
 				shutil.copyfile(f,dst)
 				dst = os.getcwd()

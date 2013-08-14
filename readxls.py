@@ -7,7 +7,7 @@ import os
 class Readxls():
 	def __init__(self):
 		self.ingresos = ['0114','0121','0201','0312','0313','0406','0407','0904']
-		self.descuentos = ['0705']
+		self.descuentos = ['0705','0704']
 		self.aportes = ['0601','0605','0606','0607','0608']
 		self.emp = ['0804']
 		self.meses = {'01':'ENERO','02':'FEBRERO','03':'MARZO','04':'ABRIL','05':'MAYO','06':'JUNIO','07':'JULIO','08':'AGOSTO','09':'SETIEMBRE','10':'OCTUBRE','11':'NOVIEMBRE','12':'DICIEMBRE'}
@@ -145,7 +145,7 @@ class Readxls():
 				mslmotivo = cell.value
 				#dias de MSL
 				cell = sheet.cell(20,6)
-				msldias = cell.value
+				msldias = str(cell.value)
 				#otros empleadores
 				cell = sheet.cell(20,7)
 				otrosemp = cell.value
