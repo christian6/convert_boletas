@@ -7,7 +7,7 @@ import os
 class Readxlsold(object):
 	"""docstring for Readxlsold"""
 	def __init__(self):
-		self.ingresos = ['0114','0121','0201','0312','0313','0406','0407','0904']
+		self.ingresos = ['0114','0118','0121','0201','0312','0313','0406','0407','0904']
 		self.descuentos = ['0705']
 		self.aportes = ['0601','0605','0606','0607','0608']
 		self.emp = ['0804']
