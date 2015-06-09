@@ -17,7 +17,7 @@ class PDF(FPDF):
 		self.cell(ln=0,h=0,align='L',w=30,txt='Periodo:'+periodo,border=0)
 		self.image('resource/icrlogo.png', 180, 7.0, link='', type='', w=20.0, h=16.0)
 
-	def cabecera(self,dni='',nombre='',situacion='',fecing='',tipot='',regimen='',cuspp='',dlaborados='',dnolaborados='',dsubsidiados='',condicion='',jothoras='',sothoras='',msltipo='',mslmotivo='',msldias='',otrosemp='',netoapagar='',dingreso={},ddescuento={},daportes={},dempleador={}):
+	def cabecera(self,dni='',nombre='',situacion='',fecing='',tipot='',regimen='',cuspp='',dlaborados='',dnolaborados='',dsubsidiados='',condicion='',jothoras='',sothoras='',msltipo='',mslmotivo='',msldias='',msltipo2='',mslmotivo2='',msldias2='',otrosemp='',netoapagar='',dingreso={},ddescuento={},daportes={},dempleador={}):
 		# Documentos de Identidad
 		#self.rect(10.0, 35.0, 30.0, 10.0)
 		self.set_font('Arial','',8)
@@ -120,25 +120,34 @@ class PDF(FPDF):
 		self.cell(ln=0,h=4,align='C',w=21,txt=msldias,border=1)
 		self.set_xy(150,64)
 		self.cell(ln=0,h=4,align='C',w=50,txt=otrosemp,border=1)
+		##################
+		self.set_xy(10,68)
+		self.cell(ln=0,h=4,align='C',w=27.5,txt=msltipo2,border=1)
+		self.set_xy(37.5,68)
+		self.cell(ln=0,h=4,align='C',w=91.5,txt=mslmotivo2,border=1)
+		self.set_xy(129,68)
+		self.cell(ln=0,h=4,align='C',w=21,txt=msldias2,border=1)
+		####
+
 		#novena fila
-		self.set_xy(10,70)
+		self.set_xy(10,72)
 		self.cell(ln=0,h=4,align='C',w=27.5,txt='Codigo',border=1)
-		self.set_xy(37.5,70)
+		self.set_xy(37.5,72)
 		self.cell(ln=0,h=4,align='C',w=91.5,txt='Conceptos',border=1)
-		self.set_xy(129,70)
+		self.set_xy(129,72)
 		self.cell(ln=0,h=4,align='C',w=21,txt=u'Ingresos S/.',border=1)
-		self.set_xy(150,70)
+		self.set_xy(150,72)
 		self.cell(ln=0,h=4,align='C',w=25,txt=u'Descuentos S/.',border=1)
-		self.set_xy(175,70)
+		self.set_xy(175,72)
 		self.cell(ln=0,h=4,align='C',w=25,txt=u'Neto S/.',border=1)
 		#decimo
-		self.set_xy(10,74)
+		self.set_xy(10,76)
 		self.set_font('Arial','B',8)
 		self.cell(ln=0,h=4,align='L',w=190,txt='Ingresos',border=1)
 		#onceavo
 		# aqui
-		des_ingreso = {'0114':'VACACIONES TRUNCAS','0118':u'REMUNERACIÓN VACACIONAL','0121':u'REMUNERACIÓN O JORNAL BASICO','0201':u'ASIGNACION FAMILIAR','0312':u'BONIF. EXTRAORD. TEMPORAL LEY 29351',u'0313':u'BONIFICACION EXTRAORD. PROPORCIONAL - LEY 29351','0406':u'GRATIF. F.PATRIAS NAVIDAD LEY 29351',U'0407':U'GRATIF. PROPORCIONAL - LEY 29351','0904':u'CONPENSACION TIEMPO DE SERVICIO'}
-		y=78
+		des_ingreso = {'0114':'VACACIONES TRUNCAS','0118':u'REMUNERACIÓN VACACIONAL','0121':u'REMUNERACIÓN O JORNAL BASICO','0201':u'ASIGNACION FAMILIAR','0312':u'BONIF. EXTRAORD. TEMPORAL LEY 29351',u'0313':u'BONIFICACION EXTRAORD. PROPORCIONAL - LEY 29351','0406':u'GRATIF. F.PATRIAS NAVIDAD LEY 29351',U'0407':U'GRATIF. PROPORCIONAL - LEY 29351','0904':u'CONPENSACION TIEMPO DE SERVICIO','0916':u'SUBSIDIO INCAPACIDAD POR ENFERMEDAD'}
+		y=80
 		for k,i in dingreso.items():
 			#print k, i
 			self.set_font('Arial','',7)
@@ -154,7 +163,7 @@ class PDF(FPDF):
 		self.set_font('Arial','B',7)
 		self.cell(ln=0,h=3,align='L',w=190,txt='Descuentos',border=1)
 
-		des_descuento = {'0705':u'INASISTENCIAS','0704':u'TARDANZAS'}
+		des_descuento = {'0707':u'OTROS DESCUENTOS DEDUCTIBLES DE BASE IMPONIBLE','0705':u'INASISTENCIAS','0704':u'TARDANZAS'}
 		for k,i in ddescuento.items():
 			y = y + 3
 			self.set_font('Arial','',7)
@@ -228,7 +237,7 @@ class PDF(FPDF):
 		self.cell(ln=0,h=0,align='L',w=30,txt='Periodo:'+periodo,border=0)
 		self.image('resource/icrlogo.png', 180, 154, link='', type='', w=20.0, h=16.0)
 
-	def cabecera_copy(self,dni='',nombre='',situacion='',fecing='',tipot='',regimen='',cuspp='',dlaborados='',dnolaborados='',dsubsidiados='',condicion='',jothoras='',sothoras='',msltipo='',mslmotivo='',msldias='',otrosemp='',netoapagar='',dingreso={},ddescuento={},daportes={},dempleador={}):
+	def cabecera_copy(self,dni='',nombre='',situacion='',fecing='',tipot='',regimen='',cuspp='',dlaborados='',dnolaborados='',dsubsidiados='',condicion='',jothoras='',sothoras='',msltipo='',mslmotivo='',msldias='',msltipo2='',mslmotivo2='',msldias2='',otrosemp='',netoapagar='',dingreso={},ddescuento={},daportes={},dempleador={}):
 		# Documentos de Identidad
 		#self.rect(10.0, 35.0, 30.0, 10.0)
 		self.set_font('Arial','',8)
@@ -331,26 +340,35 @@ class PDF(FPDF):
 		self.cell(ln=0,h=4,align='C',w=21,txt=msldias,border=1)
 		self.set_xy(150,210)
 		self.cell(ln=0,h=4,align='C',w=50,txt=otrosemp,border=1)
+		#################
+		self.set_xy(10,214)
+		self.cell(ln=0,h=4,align='C',w=27.5,txt=msltipo2,border=1)
+		self.set_xy(37.5,214)
+		self.cell(ln=0,h=4,align='C',w=91.5,txt=mslmotivo2,border=1)
+		self.set_xy(129,214)
+		self.cell(ln=0,h=4,align='C',w=21,txt=msldias2,border=1)
+		#############
+
 		#novena fila
 		self.set_font('Arial','',7)
-		self.set_xy(10,214)
+		self.set_xy(10,218)
 		self.cell(ln=0,h=3,align='C',w=27.5,txt='Codigo',border=1)
-		self.set_xy(37.5,214)
+		self.set_xy(37.5,218)
 		self.cell(ln=0,h=3,align='C',w=91.5,txt='Conceptos',border=1)
-		self.set_xy(129,214)
+		self.set_xy(129,218)
 		self.cell(ln=0,h=3,align='C',w=21,txt=u'Ingresos S/.',border=1)
-		self.set_xy(150,214)
+		self.set_xy(150,218)
 		self.cell(ln=0,h=3,align='C',w=25,txt=u'Descuentos S/.',border=1)
-		self.set_xy(175,214)
+		self.set_xy(175,218)
 		self.cell(ln=0,h=3,align='C',w=25,txt=u'Neto S/.',border=1)
 		#decimo
-		self.set_xy(10,218)
+		self.set_xy(10,222)
 		self.set_font('Arial','B',7)
 		self.cell(ln=0,h=3,align='L',w=190,txt='Ingresos',border=1)
 		#onceavo
 		# aqui
-		des_ingreso = {'0114':'VACACIONES TRUNCAS','0118':u'REMUNERACIÓN VACACIONAL','0121':u'REMUNERACIÓN O JORNAL BASICO','0201':u'ASIGNACION FAMILIAR','0312':u'BONIF. EXTRAORD. TEMPORAL LEY 29351',u'0313':u'BONIFICACION EXTRAORD. PROPORCIONAL - LEY 29351','0406':u'GRATIF. F.PATRIAS NAVIDAD LEY 29351',U'0407':U'GRATIF. PROPORCIONAL - LEY 29351','0904':u'CONPENSACION TIEMPO DE SERVICIO'}
-		y=222
+		des_ingreso = {'0114':'VACACIONES TRUNCAS','0118':u'REMUNERACIÓN VACACIONAL','0121':u'REMUNERACIÓN O JORNAL BASICO','0201':u'ASIGNACION FAMILIAR','0312':u'BONIF. EXTRAORD. TEMPORAL LEY 29351',u'0313':u'BONIFICACION EXTRAORD. PROPORCIONAL - LEY 29351','0406':u'GRATIF. F.PATRIAS NAVIDAD LEY 29351',U'0407':U'GRATIF. PROPORCIONAL - LEY 29351','0904':u'CONPENSACION TIEMPO DE SERVICIO','0916':u'SUBSIDIO INCAPACIDAD POR ENFERMEDAD'}
+		y=226
 		for k,i in dingreso.items():
 			#print k, i
 			self.set_font('Arial','',7)
@@ -366,7 +384,7 @@ class PDF(FPDF):
 		self.set_font('Arial','B',7)
 		self.cell(ln=0,h=3,align='L',w=190,txt='Descuentos',border=1)
 
-		des_descuento = {'0705':u'INASISTENCIAS','0704':u'TARDANZAS'}
+		des_descuento = {'0707':u'OTROS DESCUENTOS DEDUCTIBLES DE BASE IMPONIBLE','0705':u'INASISTENCIAS','0704':u'TARDANZAS'}
 		for k,i in ddescuento.items():
 			y = y + 3
 			self.set_font('Arial','',7)

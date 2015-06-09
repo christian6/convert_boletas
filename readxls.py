@@ -6,8 +6,8 @@ import os
 
 class Readxls():
 	def __init__(self):
-		self.ingresos = ['0114','0118','0121','0201','0312','0313','0406','0407','0904']
-		self.descuentos = ['0705','0704']
+		self.ingresos = ['0114','0118','0121','0201','0312','0313','0406','0407','0904','0916']
+		self.descuentos = ['0707','0705','0704']
 		self.aportes = ['0601','0605','0606','0607','0608']
 		self.emp = ['0804']
 		self.meses = {'01':'ENERO','02':'FEBRERO','03':'MARZO','04':'ABRIL','05':'MAYO','06':'JUNIO','07':'JULIO','08':'AGOSTO','09':'SETIEMBRE','10':'OCTUBRE','11':'NOVIEMBRE','12':'DICIEMBRE'}
@@ -52,6 +52,10 @@ class Readxls():
 				descodigo=''
 				desconcepto=''
 				desdescuento=''
+				###
+				msltipo2=''
+				mslmotivo2=''
+				msldias2=''
 				## Descuente de afp
 				aptcodigoafp=''
 				aptconceptoafp=''
@@ -128,6 +132,8 @@ class Readxls():
 				# Dias subsidiados
 				cell = sheet.cell(17,3)
 				dsubsidiados = str(cell.value)
+
+
 				#Condicion
 				cell = sheet.cell(17,4)
 				condicion = cell.value
@@ -140,6 +146,16 @@ class Readxls():
 				#Motivo de suspencion laboral
 				cell = sheet.cell(20,1)
 				msltipo = cell.value
+######################
+				##Motivo de suspencion laboral 2
+				cell = sheet.cell(21,1)
+				msltipo2 = cell.value
+				cell = sheet.cell(21,2)
+				mslmotivo2 = cell.value
+				#dias de MSL
+				cell = sheet.cell(21,6)
+				msldias2 = str(cell.value)
+########################
 				#concepto MSL
 				cell = sheet.cell(20,2)
 				mslmotivo = cell.value
@@ -202,9 +218,9 @@ class Readxls():
 				pdf.add_page(orientation='P')
 				pdf.set_margins(0.5,0.5,0.5)
 				pdf.cab_principal(ruc,empleador,periodo)
-				pdf.cabecera(dni,nombre,situacion,fecing,tipot,regimen,cuspp,dlaborados,dnolaborados,dsubsidiados,condicion,jothoras,sothoras,msltipo,mslmotivo,msldias,otrosemp,netoapagar,dic_ingresos,dic_descuentos,dic_aportes,dic_empleador)
+				pdf.cabecera(dni,nombre,situacion,fecing,tipot,regimen,cuspp,dlaborados,dnolaborados,dsubsidiados,condicion,jothoras,sothoras,msltipo,mslmotivo,msldias,msltipo2,mslmotivo2,msldias2,otrosemp,netoapagar,dic_ingresos,dic_descuentos,dic_aportes,dic_empleador)
 				pdf.cab_principal_copy(ruc,empleador,periodo)
-				pdf.cabecera_copy(dni,nombre,situacion,fecing,tipot,regimen,cuspp,dlaborados,dnolaborados,dsubsidiados,condicion,jothoras,sothoras,msltipo,mslmotivo,msldias,otrosemp,netoapagar,dic_ingresos,dic_descuentos,dic_aportes,dic_empleador)
+				pdf.cabecera_copy(dni,nombre,situacion,fecing,tipot,regimen,cuspp,dlaborados,dnolaborados,dsubsidiados,condicion,jothoras,sothoras,msltipo,mslmotivo,msldias,msltipo2,mslmotivo2,msldias2,otrosemp,netoapagar,dic_ingresos,dic_descuentos,dic_aportes,dic_empleador)
 				path_out = os.getcwd()
 				dbl = '/boletas/'
 				periodo = periodo.split('/')

@@ -7,7 +7,7 @@ import os
 class Readxlsold(object):
 	"""docstring for Readxlsold"""
 	def __init__(self):
-		self.ingresos = ['0114','0118','0121','0201','0312','0313','0406','0407','0904']
+		self.ingresos = ['0114','0118','0121','0201','0312','0313','0406','0407','0904','0916']
 		self.descuentos = ['0705']
 		self.aportes = ['0601','0605','0606','0607','0608']
 		self.emp = ['0804']
@@ -130,13 +130,14 @@ class Readxlsold(object):
 				cuspp = cell.value
 				#dias laborados
 				cell = sheet.cell(15,0)
-				dlaborados = cell.value
+				dlaborados = str(cell.value)
+				print dlaborados
 				#dias no laborados
 				cell = sheet.cell(15,1)
-				dnolaborados = cell.value
+				dnolaborados = str(cell.value)
 				# Dias subsidiados
 				cell = sheet.cell(15,2)
-				dsubsidiados = cell.value
+				dsubsidiados = str(cell.value)
 				#Condicion
 				#cell = sheet.cell(17,4)
 				condicion = 'Domiciliado' # str(cell.value)
